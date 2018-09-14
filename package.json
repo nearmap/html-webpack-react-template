@@ -1,0 +1,67 @@
+{
+  "name": "html-webpack-react-template",
+  "description": "Write your HTML webpack plugin templates using React",
+  "keywords": [
+    "webpack",
+    "plugin",
+    "html",
+    "react",
+    "template"
+  ],
+  "version": "0.0.0-semantically-released",
+  "engines": {
+    "node": ">=10.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:nearmap/html-webpack-react-template.git"
+  },
+  "scripts": {
+    "default": "run clean test",
+    "clean": "rimraf ./build",
+    "build": "run build:*",
+    "build:babel": "babel src --out-dir build/pkg --ignore '**/*.test.js'",
+    "build:files": "cp ./README.md ./LICENSE package.json build/pkg/",
+    "test": "run lint jest",
+    "lint": "run lint:*",
+    "lint:js": "eslint --report-unused-disable-directives --ignore-path .gitignore .",
+    "lint:md": "remark --no-stdout --use remark-lint *.md",
+    "jest": "jest --runInBand --no-cache ",
+    "cd": "run clean build release",
+    "release": "semantic-release"
+  },
+  "bugs": "https://github.com/nearmap/html-webpack-react-template/issues",
+  "homepage": "https://github.com/nearmap/html-webpack-react-template",
+  "main": "./index.js",
+  "peerDependencies": {
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.0.0",
+    "@babel/core": "^7.0.0",
+    "@babel/preset-env": "^7.0.0",
+    "@babel/preset-react": "^7.0.0",
+    "@nearmap/eslint-config-react": "^1.0.1",
+    "@nearmap/jest-config": "^1.0.0",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-jest": "^23.4.2",
+    "commitizen": "^2.10.1",
+    "cz-conventional-changelog": "^2.1.0",
+    "eslint": "^5.5.0",
+    "jest-cli": "^23.5.0",
+    "npx-run": "^2.1.0",
+    "react": "^16.5.1",
+    "react-dom": "^16.5.1",
+    "remark-cli": "^5.0.0",
+    "remark-lint": "^6.0.1",
+    "remark-preset-lint-recommended": "^3.0.2",
+    "rimraf": "^2.6.2",
+    "semantic-release": "^15.9.14"
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  }
+}
